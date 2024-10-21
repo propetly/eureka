@@ -1,0 +1,10 @@
+app:
+  host: localhost
+  port: 9000
+
+database:
+  host: localhost
+  port: 5432
+  name: postgres
+  user: user
+  password: password
