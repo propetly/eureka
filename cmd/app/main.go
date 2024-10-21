@@ -3,19 +3,23 @@ package main
 import (
 	"api/internal/config"
 	"fmt"
+	"github.com/gorilla/mux"
+	"log"
+	"net/http"
 )
+
+func YourHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Gorilla!\n"))
+}
 
 func main() {
 
 	cfg := config.LoadEnv()
 
-	fmt.Println("Init project")
-	//fmt.Println(cfg)
-	//fmt.Println(&cfg)
+	r := mux.NewRouter()
 
-	test := *cfg
+	r.HandleFunc("/", YourHandler)
 
-	fmt.Println(test.App.Port)
-	fmt.Println(test.Database)
-
+	addr := fmt.Sprintf("%s:%s", cfg.App.Host, cfg.App.Port)
+	log.Fatal(http.ListenAndServe(addr, r))
 }
