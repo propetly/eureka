@@ -1,0 +1,23 @@
+{
+  "name": "twats",
+  "type": "module",
+  "private": true,
+  "author": "NickRisinger <boozy044@gmail.com>",
+  "keywords": [],
+  "license": "ISC",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.11.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "turbo": "2.2.3",
+    "typescript": "5.6.3"
+  }
+}
